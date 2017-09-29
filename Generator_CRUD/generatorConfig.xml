@@ -42,23 +42,23 @@
         </javaClientGenerator>
 
           <!-- Generamos el código fuente de todas las tablas -->
-          <table schema="public" tableName="componentes"></table>
-          <table schema="public" tableName="componentesactivos"></table>
-          <table schema="public" tableName="drugbank"></table>
-          <table schema="public" tableName="efectos"></table>
-          <table schema="public" tableName="estados"></table>
-          <table schema="public" tableName="fabric_import"></table>
-          <table schema="public" tableName="interaccionescomponentes"></table>
-          <table schema="public" tableName="moleculas"></table>
-          <table schema="public" tableName="moleculas_targets"></table>
-          <table schema="public" tableName="presentaciones"></table>
-          <table schema="public" tableName="productos_moleculas"></table>
-          <table schema="public" tableName="productos_presentaciones"></table>
-          <table schema="public" tableName="registro_fabric"></table>
-          <table schema="public" tableName="registrossanitarios"></table>
-          <table schema="public" tableName="targets"></table>
-          <table schema="public" tableName="unidadesmedida"></table>
-          <table schema="public" tableName="vias"></table>
+          <table tableName="componentes"></table>
+          <table tableName="componentesactivos"></table>
+          <table tableName="drugbank"></table>
+          <table tableName="efectos"></table>
+          <table tableName="estados"></table>
+          <table tableName="fabric_import"></table>
+          <table tableName="interaccionescomponentes"></table>
+          <table tableName="moleculas"></table>
+          <table tableName="moleculas_targets"></table>
+          <table tableName="presentaciones"></table>
+          <table tableName="productos_moleculas"></table>
+          <table tableName="productos_presentaciones"></table>
+          <table tableName="registro_fabric"></table>
+          <table tableName="registrossanitarios"></table>
+          <table tableName="targets"></table>
+          <table tableName="unidadesmedida"></table>
+          <table tableName="vias"></table>
 
   </context>
 </generatorConfiguration>
