@@ -2,7 +2,6 @@ package co.edu.usc.vision.interacciones.api.myBatisGenerator;
 
 import org.mybatis.generator.config.xml.ConfigurationParser;
 
-import javax.security.auth.login.Configuration;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

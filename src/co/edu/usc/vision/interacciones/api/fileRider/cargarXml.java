@@ -1,15 +1,14 @@
 package co.edu.usc.vision.interacciones.api.fileRider;
 
-import java.io.File;
+import org.jdom2.Content;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.util.IteratorIterable;
+
 import java.io.IOException;
 import java.util.List;
-
-import org.jdom2.Content;               // |
-import org.jdom2.Document;              // |
-import org.jdom2.Element;               // |\ Librerías
-import org.jdom2.JDOMException;         // |/ JDOM
-import org.jdom2.input.SAXBuilder;      // |
-import org.jdom2.util.IteratorIterable; // |
 
 /**
  * Created by vision on 1/09/17.
