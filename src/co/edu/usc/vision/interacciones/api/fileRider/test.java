@@ -1,5 +1,7 @@
 package co.edu.usc.vision.interacciones.api.fileRider;
 
+import co.edu.usc.vision.interacciones.api.utiles.BdUtils;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -7,19 +9,13 @@ import java.sql.Statement;
 public class test {
 
     public static void main(String args[]) {
-        Connection c = null;
 
         Statement stmt = null;
         String sql = null;
 
         try {
 
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/test001", "interacciones", "123456");
-            System.out.println("Base de datos abierta correctamente");
-
-            c.setAutoCommit(false);
-            System.out.println("AutoCommit(false)");
+            Connection c = BdUtils.getSession();
 
             stmt = c.createStatement();
 
@@ -54,10 +50,10 @@ public class test {
             stmt.close();
             c.commit();
             System.out.println("commit;");
-            c.close();
-            System.out.println("Base de datos cerrada correctamente");
+            BdUtils.closeSession();
 
         } catch (Exception e) {
+
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
