@@ -1,7 +1,7 @@
 package co.edu.usc.vision.interacciones.api.fileRider;
 
 
-import co.edu.usc.vision.interacciones.utiles.Util;
+import co.edu.usc.vision.interacciones.api.utiles.Util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -50,14 +50,13 @@ public class ReadFile {
             String line;
             while ((line = reader.readLine()) != null) {
 
-
-
                 final Matcher matcherId = patternDrugId.matcher(line);
 
                 //Lectura de drugbank-id primary
                 while (matcherId.find()){
                     line = reader.readLine();
-                    System.out.println(line);
+                    //System.out.println(line);
+                    System.out.println(line.substring(15,23));
                     totalLineas += 1;
                     break;
                 }
