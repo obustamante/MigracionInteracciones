@@ -3,7 +3,6 @@ package co.edu.usc.vision.interacciones.api.fileRider;
 import co.edu.usc.vision.interacciones.api.utiles.BdUtils;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class test {
@@ -19,32 +18,25 @@ public class test {
 
             stmt = c.createStatement();
 
-            sql = "TRUNCATE TABLE drugbank;";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("TRUNCATE TABLE drugbank;");
             System.out.println("TRUNCATE TABLE drugbank;");
 
-            sql = "DROP SEQUENCE seq_drugbank;";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("DROP SEQUENCE seq_drugbank;");
             System.out.println("DROP SEQUENCE seq_drugbank;");
 
-            sql = "CREATE SEQUENCE seq_drugbank start 1 increment 1;";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("CREATE SEQUENCE seq_drugbank start 1 increment 1;");
             System.out.println("CREATE SEQUENCE seq_drugbank start 1 increment 1;");
 
-            sql = "INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB01048');";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB01048');");
             System.out.println("Insertando...");
 
-            sql = "INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB00054');";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB00054');");
             System.out.println("Insertando...");
 
-            sql = "INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB06736');";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB06736');");
             System.out.println("Insertando...");
 
-            sql = "INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB01418');";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), 'BTD00024', 'B01AE02','DB01418');");
             System.out.println("Insertando...");
 
             stmt.close();
