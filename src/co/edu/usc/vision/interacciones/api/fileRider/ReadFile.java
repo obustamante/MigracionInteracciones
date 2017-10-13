@@ -1,9 +1,11 @@
 package co.edu.usc.vision.interacciones.api.fileRider;
 
-
 import co.edu.usc.vision.interacciones.api.utiles.BdUtils;
 import co.edu.usc.vision.interacciones.api.utiles.Util;
 
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.Connection;
@@ -18,6 +20,7 @@ import java.util.regex.Pattern;
  */
 public class ReadFile {
 
+    private int ii;
 
     public ReadFile(String file) {
         readFile(file);
@@ -67,7 +70,7 @@ public class ReadFile {
                 while (matcherId.find()) {
                     line = reader.readLine();
                     drugbank_id = line.substring(15, 23);
-                    System.out.println(drugbank_id + " - id-drugbank");
+//                    System.out.println(drugbank_id + " - id-drugbank");
                     totalLineas += 1;
                     break;
                 }
@@ -78,7 +81,7 @@ public class ReadFile {
                 while (matcherACT.find()) {
                     line = reader.readLine();
                     atc_id = line.substring(20, 27);
-                    System.out.println("    " + atc_id + " - id-atc");
+//                    System.out.println("    " + atc_id + " - id-atc");
                     totalLineas += 1;
                     break;
                 }
@@ -100,7 +103,7 @@ public class ReadFile {
                     if (matcherDrugbankId.find()) {
 
                         drugbank_id_asociado = line.substring(20, 26);
-                        System.out.println("        " + drugbank_id_asociado + " - Drugbank-Id asociado");
+//                        System.out.println("        " + drugbank_id_asociado + " - Drugbank-Id asociado");
 
                         // insertando en la tabla Drugbank
                         insertDrugbank(drugbank_id, atc_id, drugbank_id_asociado );
@@ -185,26 +188,17 @@ public class ReadFile {
             stmt = c.createStatement();
 
 
-            System.out.println("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES " +
-                    " (nextval('seq_drugbank'), " + drugbank + "," + atc + "," + asociado + ");"
-
-            );
-
-
-
-            System.out.println("drugbank_id: " + drugbank);
-            System.out.println("atc: " + atc);
-            System.out.println("interaccion: " + asociado);
+//            System.out.println("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), " + drugbank + "," + atc + "," + asociado + ");");
 
             stmt.executeUpdate("INSERT INTO drugbank (id                     ,    drugbank_id  , atc       ,   interaccion) VALUES " +
                                                       " (nextval('seq_drugbank'), '" + drugbank + "','" + atc + "','" + asociado + "');");
-            System.out.println("Insertando...");
+//            System.out.println("Insertando...");
 
 
 
             stmt.close();
             c.commit();
-            System.out.println("commit;");
+//            System.out.println("commit;");
             BdUtils.closeSession();
 
 
@@ -221,14 +215,73 @@ public class ReadFile {
 
     public static void main(String[] args) {
 
-        String rutaArchivo = "/home/vision/Obustamante/drugbank/full database3.xml";
+
+        JFrame f = new JFrame("drugbank");
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container content = f.getContentPane();
+        JProgressBar progressBar = new JProgressBar();
+        // Play animation
+        progressBar.setIndeterminate(true);
+        //progressBar.setValue(25);
+        //progressBar.setStringPainted(true);
+        Border border = BorderFactory.createTitledBorder("Insertando datos...");
+        progressBar.setBorder(border);
+        content.add(progressBar, BorderLayout.NORTH);
+        f.setSize(300, 100);
+        f.setVisible(true);
+
+
+        //String rutaArchivo = "/home/vision/Obustamante/drugbank/full database3.xml";
+        String rutaArchivo = "/home/vision/Obustamante/drugbank/full database.xml";
 
         System.out.println("Inicia la lectura de archivo " + rutaArchivo);
 
         ReadFile rf = new ReadFile(rutaArchivo);
 
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        /*
+
+        JFrame parentFrame = new JFrame();
+        parentFrame.setSize(500, 150);
+        JLabel jl = new JLabel();
+        jl.setText("Count : 0");
+
+        parentFrame.add(BorderLayout.CENTER, jl);
+        parentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        parentFrame.setVisible(true);
+
+        final JDialog dlg = new JDialog(parentFrame, "Progress Dialog", true);
+        JProgressBar dpb = new JProgressBar(0, 500);
+        dlg.add(BorderLayout.CENTER, dpb);
+        dlg.add(BorderLayout.NORTH, new JLabel("Progress..."));
+        dlg.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        dlg.setSize(300, 75);
+        dlg.setLocationRelativeTo(parentFrame);
+
+        Thread t = new Thread(new Runnable() {
+            public void run() {
+                dlg.setVisible(true);
+            }
+        });
+        t.start();
+        for (int i = 0; i <= 500; i++) {
+            jl.setText("Count : " + i);
+            dpb.setValue(i);
+            if(dpb.getValue() == 500){
+                dlg.setVisible(false);
+                System.exit(0);
+
+            }
+            try {
+                Thread.sleep(25);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        dlg.setVisible(true);
+*/
     }
-
 
 }

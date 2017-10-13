@@ -2,9 +2,10 @@ package co.edu.usc.vision.interacciones.api.dao.model;
 
 import co.edu.usc.vision.interacciones.api.dao.model.ProductosPresentaciones;
 import co.edu.usc.vision.interacciones.api.dao.model.ProductosPresentacionesExample;
+import org.apache.ibatis.annotations.Param;
+
 import java.math.BigDecimal;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface ProductosPresentacionesMapper {
     /**

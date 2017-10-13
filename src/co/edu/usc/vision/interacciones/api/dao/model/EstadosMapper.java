@@ -1,10 +1,9 @@
 package co.edu.usc.vision.interacciones.api.dao.model;
 
-import co.edu.usc.vision.interacciones.api.dao.model.Estados;
-import co.edu.usc.vision.interacciones.api.dao.model.EstadosExample;
+import org.apache.ibatis.annotations.Param;
+
 import java.math.BigDecimal;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface EstadosMapper {
     /**

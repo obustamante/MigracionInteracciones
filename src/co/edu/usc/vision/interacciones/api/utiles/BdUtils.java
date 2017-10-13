@@ -16,10 +16,10 @@ public class BdUtils {
 
                 Class.forName("org.postgresql.Driver");
                 c = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/test001", "interacciones", "123456");
-                System.out.println("Base de datos abierta correctamente");
+                //System.out.println("Base de datos abierta correctamente");
 
                 c.setAutoCommit(false);
-                System.out.println("AutoCommit(false)");
+                //System.out.println("AutoCommit(false)");
 
             }
 
@@ -37,7 +37,7 @@ public class BdUtils {
         if(c != null){
             c.close();
             c = null;
-            System.out.println("Base de datos cerrada correctamente \n\r");
+            //System.out.println("Base de datos cerrada correctamente \n\r");
         }
     }
 

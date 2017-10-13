@@ -1,9 +1,8 @@
 package co.edu.usc.vision.interacciones.api.dao.model;
 
-import co.edu.usc.vision.interacciones.api.dao.model.Componentesactivos;
-import co.edu.usc.vision.interacciones.api.dao.model.ComponentesactivosExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ComponentesactivosMapper {
     /**

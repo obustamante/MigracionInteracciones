@@ -2,8 +2,9 @@ package co.edu.usc.vision.interacciones.api.dao.model;
 
 import co.edu.usc.vision.interacciones.api.dao.model.ProductosMoleculas;
 import co.edu.usc.vision.interacciones.api.dao.model.ProductosMoleculasExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ProductosMoleculasMapper {
     /**
