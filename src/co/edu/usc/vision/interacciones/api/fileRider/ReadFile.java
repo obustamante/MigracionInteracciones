@@ -60,8 +60,8 @@ public class ReadFile {
 
                 final Matcher matcherId = patternDrugId.matcher(line);
 
-                drugbank_id = null;
-                atc_id = null;
+//                drugbank_id = null;
+//                atc_id = null;
 
                 //Lectura de drugbank-id primary
                 while (matcherId.find()) {
@@ -88,7 +88,7 @@ public class ReadFile {
 
                 boolean interaccionesOpen = matcherInteraccionOpen.find();
 
-                drugbank_id_asociado = null;
+//                drugbank_id_asociado = null;
 
                 while (interaccionesOpen) {
                     //Lectura de las interacciones asociadas
@@ -105,7 +105,6 @@ public class ReadFile {
                         // insertando en la tabla Drugbank
                         insertDrugbank(drugbank_id, atc_id, drugbank_id_asociado );
 
-
                     }
 
                     //sale de las interacciones
@@ -115,11 +114,6 @@ public class ReadFile {
                     }
 
                 }
-
-
-                //Lectura de interacciones de comida
-                //TODO: Se debe de adicionar la interacciones con la comida?
-
 
                 records.add(line);
                 totalLineas += 1;
@@ -182,6 +176,7 @@ public class ReadFile {
      */
     private void insertDrugbank(String drugbank, String atc, String asociado) {
         Statement stmt = null;
+        int seq_drugbank;
 
         Connection c = BdUtils.getSession();
 
@@ -189,8 +184,30 @@ public class ReadFile {
 
             stmt = c.createStatement();
 
-            stmt.executeUpdate("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), " + drugbank + "," + atc + "," + asociado + ");");
+
+            System.out.println("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES " +
+                    " (nextval('seq_drugbank'), " + drugbank + "," + atc + "," + asociado + ");"
+
+            );
+
+
+
+            System.out.println("drugbank_id: " + drugbank);
+            System.out.println("atc: " + atc);
+            System.out.println("interaccion: " + asociado);
+
+            stmt.executeUpdate("INSERT INTO drugbank (id                     ,    drugbank_id  , atc       ,   interaccion) VALUES " +
+                                                      " (nextval('seq_drugbank'), '" + drugbank + "','" + atc + "','" + asociado + "');");
             System.out.println("Insertando...");
+
+
+
+            stmt.close();
+            c.commit();
+            System.out.println("commit;");
+            BdUtils.closeSession();
+
+
 
         } catch (Exception e) {
 
