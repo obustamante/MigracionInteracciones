@@ -37,7 +37,7 @@ public class BdUtils {
         if(c != null){
             c.close();
             c = null;
-            System.out.println("Base de datos cerrada correctamente");
+            System.out.println("Base de datos cerrada correctamente \n\r");
         }
     }
 
