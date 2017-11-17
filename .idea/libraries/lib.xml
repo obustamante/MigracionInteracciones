@@ -1,13 +1,94 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/lib" />
+      <root url="jar://$PROJECT_DIR$/lib/com.google.api.translate-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-android-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-appengine-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-gson-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-jackson2-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-java6-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-servlet-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-android-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-appengine-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-gson-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jackson2-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jdo-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-appengine-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-java6-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-jetty-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-servlet-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gson-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/httpclient-4.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/httpcore-4.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ibatis-core-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.transaction-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdo2-api-2.3-eb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom-2.0.6-contrib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom-2.0.6-junit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom-2.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-6.1.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-util-6.1.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsr305-1.3.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mybatis-generator-core-1.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/postgresql-42.1.1.jre6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/transaction-api-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-0.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-services-translate-v2-rev51-1.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-collections.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/auto-value-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-appengine-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-client-servlet-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-services-translate-v2-rev47-1.22.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-auth-library-credentials-0.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-auth-library-oauth2-http-0.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-core-0.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-translate-0.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-appengine-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jackson-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jackson2-1.19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jdo-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-appengine-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-servlet-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-context-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-core-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-google-common-protos-0.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-google-iam-v1-0.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-protobuf-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-protobuf-lite-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gson-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guice-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/joda-time-2.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json-20151123.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/protobuf-java-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/protobuf-java-util-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gax-0.0.22.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/jdom-2.0.6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mybatis-generator-core-1.3.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-services-translate-v2-rev51-1.23.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/lib" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom-2.0.6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsr305-1.3.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mybatis-generator-core-1.3.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-api-services-translate-v2-rev51-1.23.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/auto-value-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gax-0.0.22.jar!/generated" />
     </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

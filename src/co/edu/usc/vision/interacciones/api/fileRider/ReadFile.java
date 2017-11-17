@@ -34,6 +34,7 @@ public class ReadFile {
      */
     private void readFile(String filename) {
 
+        // limpia la tabla
         cleanDrugbank();
 
         String drugbank_id = null;
@@ -42,8 +43,8 @@ public class ReadFile {
 
         int totalLineas = 0;
 
-        final String regexDrugId = "<drugbank-id primary=\"true\">(.+?)<.drugbank-id>";
-        final String regexATC = "^\\n*\\s*<atc-codes>$";
+        final String regexDrugId = "<drugbank-id primary=\"true\">(.+?)<.drugbank-id>"; // <drugbank-id primary="true">DB00001</drugbank-id>
+        final String regexATC = "^\\n*\\s*<atc-codes>$"; // <atc-code code="B01AE02">
         final String regexInteraccionOpen = "^\\n*\\s*<drug-interactions>$";
         final String regexInteraccionClose = "^\\n*\\s*<.drug-interactions>$";
         final String regexDrugbankId = "<drugbank-id>(.+?)+<.drugbank-id>";
@@ -63,14 +64,14 @@ public class ReadFile {
 
                 final Matcher matcherId = patternDrugId.matcher(line);
 
-//                drugbank_id = null;
-//                atc_id = null;
-
                 //Lectura de drugbank-id primary
                 while (matcherId.find()) {
-                    line = reader.readLine();
-                    drugbank_id = line.substring(15, 23);
-//                    System.out.println(drugbank_id + " - id-drugbank");
+                    //line = reader.readLine();
+
+                    drugbank_id = line.substring(line.indexOf(">") + 1, line.lastIndexOf("<"));
+
+//                  System.out.println(drugbank_id + " - id-drugbank );
+
                     totalLineas += 1;
                     break;
                 }
@@ -131,6 +132,7 @@ public class ReadFile {
 
 
         System.out.println("Fin de la lectura de archivo. " + Util.saltoDeLinea + "Total de lineas = " + Util.formatoNumero(totalLineas));
+        System.exit(0);
 
     }
 
