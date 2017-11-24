@@ -40,6 +40,7 @@ public class ReadFile {
         String drugbank_id = null;
         String atc_id = null;
         String drugbank_id_asociado = null;
+        String descripcionInteraccion = null;
 
         int totalLineas = 0;
 
@@ -47,6 +48,10 @@ public class ReadFile {
         final String regexATC = "^\\n*\\s*<atc-codes>$"; // <atc-code code="B01AE02">
         final String regexInteraccionOpen = "^\\n*\\s*<drug-interactions>$";
         final String regexInteraccionClose = "^\\n*\\s*<.drug-interactions>$";
+        final String regexDescriptionOpen = "<description>";
+        final String regexDescriptionClose = "</description>";
+
+
         final String regexDrugbankId = "<drugbank-id>(.+?)+<.drugbank-id>";
 
         final Pattern patternDrugId = Pattern.compile(regexDrugId);
@@ -54,6 +59,8 @@ public class ReadFile {
         final Pattern patternInteraccionOpen = Pattern.compile(regexInteraccionOpen);
         final Pattern patternInteraccionClose = Pattern.compile(regexInteraccionClose);
         final Pattern patternDrugbankId = Pattern.compile(regexDrugbankId);
+        final Pattern patternDescriptionOpen = Pattern.compile(regexDescriptionOpen);
+        final Pattern patternDescriptionClose = Pattern.compile(regexDescriptionClose);
 
         List<String> records = new ArrayList<String>();
 
@@ -107,9 +114,27 @@ public class ReadFile {
 //                        System.out.println("        " + drugbank_id_asociado + " - Drugbank-Id asociado");
 
                         // insertando en la tabla Drugbank
-                        insertDrugbank(drugbank_id, atc_id, drugbank_id_asociado );
+                        //insertDrugbank(drugbank_id, atc_id, drugbank_id_asociado, descripcionInteraccion);
 
                     }
+
+
+                    descripcionInteraccion = null;
+
+
+                    final Matcher matcherDescriptionOpen = patternDescriptionOpen.matcher(line);
+                    // imprime la descripcion de la interaccion si es encontrada
+                    if (matcherDescriptionOpen.find()) {
+
+                        descripcionInteraccion = line.substring(line.indexOf(">") + 1, line.lastIndexOf("<"));
+//                        System.out.println("                " + descripcionInteraccion + " - Descripcion de la interaccion");
+
+                        // insertando en la tabla Drugbank
+                        insertDrugbank(drugbank_id, atc_id, drugbank_id_asociado, descripcionInteraccion);
+
+                    }
+
+
 
                     //sale de las interacciones
                     final Matcher matcherInteraccionesClose = patternInteraccionClose.matcher(line);
@@ -178,8 +203,9 @@ public class ReadFile {
      * @param drugbank
      * @param atc
      * @param asociado
+     * @param descripcionInteraccion
      */
-    private void insertDrugbank(String drugbank, String atc, String asociado) {
+    private void insertDrugbank(String drugbank, String atc, String asociado, String descripcionInteraccion) {
         Statement stmt = null;
         int seq_drugbank;
 
@@ -189,13 +215,16 @@ public class ReadFile {
 
             stmt = c.createStatement();
 
+/*
+            System.out.println("INSERT INTO drugbank (id, drugbank_id, atc, interaccion, descripcion) VALUES (nextval('seq_drugbank'), "
+                                                          + drugbank + ","
+                                                          + atc + ","
+                                                          + asociado  + ","
+                                                          + descripcionInteraccion + ");");
+*/
 
-//            System.out.println("INSERT INTO drugbank (id, drugbank_id, atc, interaccion) VALUES (nextval('seq_drugbank'), " + drugbank + "," + atc + "," + asociado + ");");
-
-            stmt.executeUpdate("INSERT INTO drugbank (id                     ,    drugbank_id  , atc       ,   interaccion) VALUES " +
-                                                      " (nextval('seq_drugbank'), '" + drugbank + "','" + atc + "','" + asociado + "');");
-//            System.out.println("Insertando...");
-
+            stmt.executeUpdate("INSERT INTO drugbank (id                     ,    drugbank_id  , atc       ,   interaccion, descripcion) VALUES " +
+                    " (nextval('seq_drugbank'), '" + drugbank + "','" + atc + "','" + asociado + "','" + descripcionInteraccion + "');");
 
 
             stmt.close();
@@ -242,48 +271,6 @@ public class ReadFile {
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        /*
-
-        JFrame parentFrame = new JFrame();
-        parentFrame.setSize(500, 150);
-        JLabel jl = new JLabel();
-        jl.setText("Count : 0");
-
-        parentFrame.add(BorderLayout.CENTER, jl);
-        parentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        parentFrame.setVisible(true);
-
-        final JDialog dlg = new JDialog(parentFrame, "Progress Dialog", true);
-        JProgressBar dpb = new JProgressBar(0, 500);
-        dlg.add(BorderLayout.CENTER, dpb);
-        dlg.add(BorderLayout.NORTH, new JLabel("Progress..."));
-        dlg.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-        dlg.setSize(300, 75);
-        dlg.setLocationRelativeTo(parentFrame);
-
-        Thread t = new Thread(new Runnable() {
-            public void run() {
-                dlg.setVisible(true);
-            }
-        });
-        t.start();
-        for (int i = 0; i <= 500; i++) {
-            jl.setText("Count : " + i);
-            dpb.setValue(i);
-            if(dpb.getValue() == 500){
-                dlg.setVisible(false);
-                System.exit(0);
-
-            }
-            try {
-                Thread.sleep(25);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        dlg.setVisible(true);
-*/
     }
 
 }
